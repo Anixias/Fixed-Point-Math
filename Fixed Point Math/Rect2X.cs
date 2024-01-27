@@ -58,11 +58,22 @@ public struct Rect2X : IEquatable<Rect2X>
 		this.size = size;
 	}
 
-	public static Rect2X FromBounds(Vector2X start, Vector2X end) => new() { Start = start, End = end };
+	public static Rect2X FromBounds(Vector2X start, Vector2X end)
+	{
+		var position = new Vector2X(Fixed64.Min(start.x, end.x), Fixed64.Min(start.y, end.y));
+		var size = new Vector2X(Fixed64.Max(start.x, end.x), Fixed64.Max(start.y, end.y)) - position;
+		return new Rect2X(position, size);
+	}
+	
+	public readonly bool Intersects(Rect2X rect)
+	{
+		return position.x < rect.End.x && End.x > rect.position.x && 
+		       position.y < rect.End.y && End.y > rect.position.y;
+	}
 
 	public bool Equals(Rect2X other)
 	{
-		throw new NotImplementedException();
+		return position == other.position && size == other.size;
 	}
 
 	public override bool Equals(object? obj)
@@ -72,6 +83,6 @@ public struct Rect2X : IEquatable<Rect2X>
 
 	public override int GetHashCode()
 	{
-		throw new NotImplementedException();
+		return HashCode.Combine(position, size);
 	}
 }
