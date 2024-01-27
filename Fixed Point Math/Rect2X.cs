@@ -16,14 +16,8 @@ public struct Rect2X : IEquatable<Rect2X>
 				return;
 			}
 
-			var minX = Fixed64.Min(value.x, end.x);
-			var minY = Fixed64.Min(value.y, end.y);
-			
-			var maxX = Fixed64.Max(value.x, end.x);
-			var maxY = Fixed64.Max(value.y, end.y);
-
-			position = new Vector2X(minX, minY);
-			size = new Vector2X(maxX, maxY) - position;
+			position = value;
+			End = end;
 		}
 	}
 
