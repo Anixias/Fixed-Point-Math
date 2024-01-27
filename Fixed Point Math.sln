@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fixed Point Math", "Fixed Point Math\Fixed Point Math.csproj", "{17985D9F-57E0-4CEF-A1BF-47624439A337}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17985D9F-57E0-4CEF-A1BF-47624439A337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17985D9F-57E0-4CEF-A1BF-47624439A337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17985D9F-57E0-4CEF-A1BF-47624439A337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17985D9F-57E0-4CEF-A1BF-47624439A337}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
