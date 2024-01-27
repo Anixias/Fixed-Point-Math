@@ -1,5 +1,9 @@
 ﻿namespace FixedPointMath;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
+// ReSharper disable IdentifierTypo
 public struct Rect2X : IEquatable<Rect2X>
 {
 	public Vector2X Start
@@ -64,6 +68,10 @@ public struct Rect2X : IEquatable<Rect2X>
 		return position.x < rect.End.x && End.x > rect.position.x && 
 		       position.y < rect.End.y && End.y > rect.position.y;
 	}
+
+	public static bool operator ==(Rect2X left, Rect2X right) => left.Equals(right);
+
+	public static bool operator !=(Rect2X left, Rect2X right) => !(left == right);
 
 	public bool Equals(Rect2X other)
 	{
