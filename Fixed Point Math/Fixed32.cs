@@ -692,7 +692,7 @@ public readonly partial struct Fixed32(int rawValue) : IFixedPoint<Fixed32>
 
 	public static Fixed32 Acos(Fixed32 value)
 	{
-		if (value < -One || value > One)
+		if (value < NegativeOne || value > One)
 			throw new ArgumentOutOfRangeException(nameof(value));
 
 		if (IsZero(value))

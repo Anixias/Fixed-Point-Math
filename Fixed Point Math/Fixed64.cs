@@ -699,7 +699,7 @@ public readonly partial struct Fixed64(long rawValue) : IFixedPoint<Fixed64>
 
 	public static Fixed64 Acos(Fixed64 value)
 	{
-		if (value < -One || value > One)
+		if (value < NegativeOne || value > One)
 			throw new ArgumentOutOfRangeException(nameof(value));
 
 		if (IsZero(value))

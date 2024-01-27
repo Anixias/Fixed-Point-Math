@@ -708,7 +708,7 @@ public readonly partial struct Fixed128(Int128 rawValue) : IFixedPoint<Fixed128>
 
 	public static Fixed128 Acos(Fixed128 value)
 	{
-		if (value < -One || value > One)
+		if (value < NegativeOne || value > One)
 			throw new ArgumentOutOfRangeException(nameof(value));
 
 		if (IsZero(value))
