@@ -283,6 +283,16 @@ public readonly partial struct Fixed128(Int128 rawValue) : IFixedPoint<Fixed128>
 
 	public Fixed128 Clamp(Fixed128 min, Fixed128 max) => Clamp(this, min, max);
 
+	public static Fixed128 Min(Fixed128 a, Fixed128 b)
+	{
+		return a < b ? a : b;
+	}
+
+	public static Fixed128 Max(Fixed128 a, Fixed128 b)
+	{
+		return a > b ? a : b;
+	}
+
 	public static Fixed128 PosMod(Fixed128 a, Fixed128 b)
 	{
 		var result = a % b;

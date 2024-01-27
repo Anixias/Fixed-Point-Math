@@ -277,6 +277,16 @@ public readonly partial struct Fixed32(int rawValue) : IFixedPoint<Fixed32>
 
 	public Fixed32 Clamp(Fixed32 min, Fixed32 max) => Clamp(this, min, max);
 
+	public static Fixed32 Min(Fixed32 a, Fixed32 b)
+	{
+		return a < b ? a : b;
+	}
+
+	public static Fixed32 Max(Fixed32 a, Fixed32 b)
+	{
+		return a > b ? a : b;
+	}
+
 	public static Fixed32 PosMod(Fixed32 a, Fixed32 b)
 	{
 		var result = a % b;

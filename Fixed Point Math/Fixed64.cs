@@ -281,6 +281,16 @@ public readonly partial struct Fixed64(long rawValue) : IFixedPoint<Fixed64>
 	
 	public Fixed64 Clamp(Fixed64 min, Fixed64 max) => Clamp(this, min, max);
 
+	public static Fixed64 Min(Fixed64 a, Fixed64 b)
+	{
+		return a < b ? a : b;
+	}
+
+	public static Fixed64 Max(Fixed64 a, Fixed64 b)
+	{
+		return a > b ? a : b;
+	}
+
 	public static Fixed64 PosMod(Fixed64 a, Fixed64 b)
 	{
 		var result = a % b;
