@@ -410,8 +410,12 @@ public readonly struct Fixed64(long rawValue) : IFixedPoint<Fixed64>
 			throw new DivideByZeroException();
 		
 		if (right == 2)
-			return new Fixed64(leftRaw >> 1);
-		
+		{
+			var magnitude = new ToUnsigned(leftRaw >= 0L ? leftRaw : -leftRaw).castedValue;
+			var halved = (long)((magnitude + 1uL) >> 1);
+			return new Fixed64(leftRaw >= 0L ? halved : -halved);
+		}
+
 		var remainder = new ToUnsigned(leftRaw >= 0L ? leftRaw : -leftRaw).castedValue;
 		var divisor = new ToUnsigned(rightRaw >= 0L ? rightRaw : -rightRaw).castedValue;
 		var quotient = 0uL;

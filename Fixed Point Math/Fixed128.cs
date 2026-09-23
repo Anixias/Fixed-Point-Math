@@ -411,8 +411,12 @@ public readonly struct Fixed128(Int128 rawValue) : IFixedPoint<Fixed128>
 			throw new DivideByZeroException();
 		
 		if (right == 2)
-			return new Fixed128(leftRaw >> 1);
-		
+		{
+			var magnitude = new ToUnsigned(leftRaw >= Int128.Zero ? leftRaw : -leftRaw).castedValue;
+			var halved = (Int128)((magnitude + UInt128.One) >> 1);
+			return new Fixed128(leftRaw >= Int128.Zero ? halved : -halved);
+		}
+
 		var remainder = new ToUnsigned(leftRaw >= Int128.Zero ? leftRaw : -leftRaw).castedValue;
 		var divisor = new ToUnsigned(rightRaw >= Int128.Zero ? rightRaw : -rightRaw).castedValue;
 		var quotient = UInt128.Zero;
